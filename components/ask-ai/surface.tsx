@@ -35,12 +35,13 @@ import { chatTools } from "@/lib/assistant";
 import { getCredential } from "@/lib/certifications";
 import { getProject, repoUrl } from "@/lib/projects";
 import { cv, identity } from "@/lib/site";
+import type { ProjectSummary } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 
 type ChatMessage = UIMessage<unknown, UIDataTypes, InferUITools<typeof chatTools>>;
 
-type ProjectListItem = NonNullable<ToolView["projects"]>[number];
+type ProjectListItem = ProjectSummary;
 type CredentialListItem = NonNullable<ToolView["credentials"]>[number];
 
 function parseProjectList(value: string | undefined): ProjectListItem[] | undefined {

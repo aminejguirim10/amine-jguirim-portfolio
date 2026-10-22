@@ -1,4 +1,4 @@
-import type { Project, StackGroup } from "@/lib/types";
+import type { Project, ProjectSummary, StackGroup } from "@/lib/types";
 
 export const projects: Project[] = [
   {
@@ -88,12 +88,12 @@ export const projects: Project[] = [
     role: "Conception, développement et déploiement",
     status: "shipped",
     repo: "amine-jguirim-portfolio",
-    live: "https://aminejguirim.dev",
+    live: "https://amine-jguirim-portfolio.vercel.app",
     stack: [
       "Next.js",
       "React",
       "TypeScript",
-      "Tailwind CSS ",
+      "Tailwind CSS",
       "Vercel AI SDK",
       "Gemini",
       "Groq",
@@ -452,6 +452,18 @@ const identityHandle = "aminejguirim10";
 
 export const repoUrl = (repo: string) =>
   `https://github.com/${identityHandle}/${repo}`;
+
+export function projectSummary(project: Project): ProjectSummary {
+  return {
+    slug: project.slug,
+    name: project.name,
+    kicker: project.kicker,
+    year: project.year,
+    url: repoUrl(project.repo),
+    ...(project.live ? { live: project.live } : {}),
+    stack: project.stack,
+  };
+}
 
 export const stackGroups: StackGroup[] = [
   {

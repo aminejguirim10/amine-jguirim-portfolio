@@ -2,7 +2,14 @@ import { tool } from "ai";
 import { z } from "zod";
 
 import { associative, parcoursGroups } from "@/lib/parcours";
-import { alsoBuilt, getProject, projects, repoUrl, stackGroups } from "@/lib/projects";
+import {
+  alsoBuilt,
+  getProject,
+  projectSummary,
+  projects,
+  repoUrl,
+  stackGroups,
+} from "@/lib/projects";
 import { credentials, getCredential } from "@/lib/certifications";
 import { cv, identity } from "@/lib/site";
 
@@ -94,17 +101,7 @@ export const chatTools = {
     }),
     outputSchema: z.string(),
     execute: async ({ count }) =>
-      JSON.stringify(
-        projects.slice(0, count).map((project) => ({
-          slug: project.slug,
-          name: project.name,
-          kicker: project.kicker,
-          year: project.year,
-          url: repoUrl(project.repo),
-          ...(project.live ? { live: project.live } : {}),
-          stack: project.stack,
-        })),
-      ),
+      JSON.stringify(projects.slice(0, count).map(projectSummary)),
   }),
 
   showCertification: tool({

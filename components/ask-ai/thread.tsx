@@ -14,6 +14,8 @@ import {
   UserIcon,
 } from "lucide-react";
 
+import type { ProjectSummary } from "@/lib/types";
+
 import { Inline } from "@/components/ask-ai/inline";
 import { GithubMark } from "@/components/ui/brand-icons";
 import { Button } from "@/components/ui/button";
@@ -64,14 +66,7 @@ export type ToolView = {
     issuer: string;
     icon: "award" | "medal";
   };
-  projects?: Array<{
-    name: string;
-    kicker: string;
-    url: string;
-    live?: string;
-    year: string;
-    stack: string[];
-  }>;
+  projects?: ProjectSummary[];
   credentials?: Array<{
     title: string;
     summary: string;

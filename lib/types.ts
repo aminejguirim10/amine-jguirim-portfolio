@@ -17,6 +17,16 @@ export type Project = {
   body: string[];
 };
 
+export type ProjectSummary = {
+  slug: string;
+  name: string;
+  kicker: string;
+  year: string;
+  url: string;
+  live?: string;
+  stack: string[];
+};
+
 export type StackIcon =
   "braces" | "monitor" | "server" | "brain" | "database" | "container";
 
