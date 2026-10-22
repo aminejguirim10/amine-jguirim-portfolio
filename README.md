@@ -222,7 +222,7 @@ Keep all secrets in environment variables and never commit them to the repositor
 ## 📬 Contact
 
 - **Email:** mohamedamine.jguirim@enicar.ucar.tn
-- **Portfolio:** [aminejguirim.dev](https://aminejguirim.dev)
+- **Portfolio:** [aminejguirim.dev]([https://aminejguirim.dev](https://amine-jguirim-portfolio.vercel.app/)
 - **GitHub:** [@aminejguirim10](https://github.com/aminejguirim10)
 - **LinkedIn:** [Mohamed Amine Jguirim](https://www.linkedin.com/in/mohamed-amine-jguirim/)
 
