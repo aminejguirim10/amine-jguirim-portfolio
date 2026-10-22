@@ -6,6 +6,7 @@ import { QuestionCursor } from "@/components/ask-ai/question-cursor";
 import { CommandPaletteLayer } from "@/components/command-palette";
 import { identity, siteUrl } from "@/lib/site";
 import { themeScript } from "@/lib/theme";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
@@ -65,11 +66,9 @@ export default function RootLayout({
 
       <body className="min-h-dvh antialiased">
         {children}
-
+        <Analytics />
         <CommandPaletteLayer />
-
         <AskAiLayer />
-
         <QuestionCursor />
       </body>
     </html>
