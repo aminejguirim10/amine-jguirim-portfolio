@@ -24,10 +24,8 @@ export const projects: Project[] = [
       "Prometheus",
       "Better Auth",
       "MongoDB",
-      
     ],
-    lede:
-      "Cinq agents autonomes (Planner, Coder, Reviewer, Tester, Supervisor) collaborent en temps réel via LangGraph pour concevoir, valider et livrer du code testé.",
+    lede: "Cinq agents autonomes (Planner, Coder, Reviewer, Tester, Supervisor) collaborent en temps réel via LangGraph pour concevoir, valider et livrer du code testé.",
     useCase:
       "Un développeur ou une équipe tech doit implémenter une fonctionnalité complexe dans l'un des 50+ langages supportés sans passer par un LLM unique non supervisé. L'utilisateur saisit sa consigne ; le superviseur déploie l'équipe d'agents qui décompose le besoin, écrit le code, effectue un audit de qualité avec boucles de révision conditionnelles, et génère la suite de tests unitaires, tout en diffusant chaque étape en direct via streaming SSE dans un studio Monaco interactif.",
     highlights: [
@@ -64,8 +62,7 @@ export const projects: Project[] = [
       "Docker",
       "BM25",
     ],
-    lede:
-      "Transforme des corpus documentaires hétérogènes en une base de connaissances explorable sans hallucinations grâce à des citations vérifiables.",
+    lede: "Transforme des corpus documentaires hétérogènes en une base de connaissances explorable sans hallucinations grâce à des citations vérifiables.",
     useCase:
       "Des professionnels, chercheurs ou analystes doivent extraire des informations fiables d'un volume massif de documents d'entreprise (rapports PDF, spécifications Word, présentations PowerPoint, classeurs Excel, images et scans). Folio permet d'importer ces documents, d'interroger la base en langage naturel avec une recherche hybride vectorielle et lexicale, et d'obtenir des synthèses argumentées où chaque réponse cite précisément le document, la page et l'extrait source.",
     highlights: [
@@ -80,6 +77,45 @@ export const projects: Project[] = [
       "Le piège classique des systèmes RAG (Retrieval-Augmented Generation) est la confiance aveugle : face à des documents complexes, un retriever purement sémantique passe souvent à côté des sigles techniques, des références numériques ou des tableaux financiers. Folio résout ce problème par une recherche hybride combinant la recherche vectorielle sous ChromaDB et la recherche par mots-clés BM25.",
       "L'intégrité de l'information est au cœur du produit : Gemini est contraint de générer des réponses exclusivement fondées sur les passages effectivement extraits, en fournissant pour chaque fait le nom du fichier source, le numéro de page exacte et le fragment textuel auditable d'un simple clic.",
       "L'architecture sépare nettement un frontend moderne sous React 19 et Vite avec Framer Motion, et un backend Python 3.12 / FastAPI orchestrant PyMuPDF, python-docx, openpyxl et des validateurs stricts Pydantic v2 pour un fonctionnement entièrement reproductible sous Docker.",
+    ],
+  },
+  {
+    slug: "amine-jguirim-portfolio",
+    name: "Amine Jguirim Portfolio",
+    kicker:
+      "Portfolio avec assistant IA conversationnel, réponses générées en streaming et outils interactifs.",
+    year: "2026",
+    role: "Conception, développement et déploiement",
+    status: "shipped",
+    repo: "amine-jguirim-portfolio",
+    live: "https://aminejguirim.dev",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS ",
+      "Vercel AI SDK",
+      "Gemini",
+      "Groq",
+      "OpenRouter",
+      "Zod",
+      "GitHub API",
+    ],
+    lede: "Un portfolio qui ne se contente pas de présenter des projets : il permet de les explorer, de poser des questions et d'agir directement depuis une conversation.",
+    useCase:
+      "Un recruteur, un collaborateur ou un visiteur veut comprendre rapidement le parcours d'Amine, comparer ses projets ou obtenir son CV sans parcourir une interface statique. Le site répond en langage naturel, affiche progressivement les réponses générées et déclenche des actions contrôlées quand la demande le justifie.",
+    highlights: [
+      "Chat IA contextuel capable de répondre sur le parcours, les projets, les certifications et la stack technique",
+      "Réponses générées en streaming pour rendre visible la progression de la réponse sans attente bloquante",
+      "Tool calling validé par Zod pour ouvrir un projet, afficher une sélection, proposer le CV ou préparer un e-mail",
+      "Fallback multi-modèles Gemini, Groq et OpenRouter pour conserver une expérience disponible",
+      "Cartes d'outils interactives dans le fil de discussion avec confirmation avant les actions sensibles",
+      "Navigation clavier via command palette, thème clair/sombre, responsive design et métadonnées SEO",
+    ],
+    body: [
+      "Le site est organisé comme une expérience éditoriale plutôt qu'un tableau de liens. La page d'accueil donne d'abord le contexte, puis guide vers le parcours, les projets, les certifications, la stack et le contact. Chaque projet possède une route dédiée `/projets/[slug]` avec son cas d'usage, son architecture, ses points clés, sa stack et ses dépôts associés.",
+      "L'assistant IA utilise le Vercel AI SDK pour transmettre les réponses au fil de leur génération. Son contexte est construit à partir des données typées du portfolio afin de répondre avec les mêmes informations que l'interface, tandis que les outils sont strictement bornés par des schémas Zod et des identifiants de projets connus.",
+      "Les outils ne sont pas de simples liens déguisés : l'ouverture d'un projet est rendue dans une carte dédiée, la demande de CV reste une proposition à confirmer et la rédaction d'un e-mail ouvre une fenêtre de relecture. Cette séparation entre génération de texte, action outillée et confirmation protège l'intention du visiteur tout en gardant la conversation naturelle.",
     ],
   },
   {
@@ -105,8 +141,7 @@ export const projects: Project[] = [
       "LangGraph",
       "PostgreSQL",
     ],
-    lede:
-      "Trois dépôts, trois langages, un seul produit : le support client augmenté par l'analyse prédictive et un agent IA outillé.",
+    lede: "Trois dépôts, trois langages, un seul produit : le support client augmenté par l'analyse prédictive et un agent IA outillé.",
     useCase:
       "Une équipe de support client submergée par des flux continus de réclamations complexes transmises sous forme d'e-mails vracs ou de fichiers joints volumineux (TXT, CSV, PDF, DOCX). La plateforme découpe automatiquement les messages contenant plusieurs requêtes distinctes, classe les tickets par urgence, catégorie et tonalité sentimentale, et équipe les conseillers d'un agent conversationnel capable d'effectuer des recherches de tickets, de créer des fiches et d'escalader les incidents critiques en temps réel.",
     highlights: [
@@ -121,34 +156,6 @@ export const projects: Project[] = [
       "Dans un centre de support d'envergure, le goulot d'étranglement n'est pas la rédaction de la réponse, mais le tri initial et la qualification de l'urgence. Intelligent Support Platform automatise cette étape critique dès l'ingestion du ticket.",
       "Plutôt qu'un monolithe difficile à faire évoluer, le système s'articule autour de trois microservices étanches : le backend Java Spring Boot garantit l'intégrité transactionnelle et la sécurité RBAC, le frontend TypeScript offre un espace de travail fluide aux agents, et le microservice Python isole les pipelines LangGraph et les appels d'inférence LLM.",
       "Cette architecture permet de faire évoluer les modèles et les stratégies de découpage de tickets sans jamais perturber les règles métiers financières ou d'escalade gérées côté Spring Boot.",
-    ],
-  },
-  {
-    slug: "forge-ui-lab",
-    name: "Forge UI Lab",
-    kicker:
-      "Génère des interfaces React + Tailwind depuis une phrase, et ouvre la pull request sur GitHub.",
-    year: "2026",
-    role: "Solo",
-    status: "shipped",
-    repo: "foregeui-lab",
-    live: "https://foregeui-lab.vercel.app",
-    stack: ["TypeScript", "React", "Tailwind CSS", "Gemini", "GitHub API"],
-    lede:
-      "Un prompt en entrée, un composant Tailwind propre en sortie — pas un playground jetable, mais une vraie Pull Request prête à merger.",
-    useCase:
-      "Un ingénieur frontend ou un designer souhaite prototyper et intégrer rapidement un composant d'interface (carte de tarification, tableau de bord, formulaire dynamique) sans repartir d'une page blanche. L'utilisateur décrit son composant en langage naturel ; Forge UI Lab le génère en streaming, affiche son rendu interactif dans une sandbox iframe étanche, permet d'ajuster le résultat et pousse automatiquement le code généré dans une nouvelle branche GitHub avec Pull Request prête pour la revue d'équipe.",
-    highlights: [
-      "Génération de composants React + Tailwind élégants depuis une simple invite textuelle",
-      "Sandbox live sécurisée en iframe pour prévisualiser et interagir avec le composant généré en temps réel",
-      "Mode bi-modèle commutable : rapidité maximale (Gemini Flash Lite) ou créativité poussée (Gemini Flash)",
-      "Workflow GitHub automatisé : création de branche, commit du code et ouverture de Pull Request via l'API GitHub",
-      "Gestion des contraintes de design system pour produire un code propre et facilement maintenable",
-    ],
-    body: [
-      "La plupart des générateurs de code IA s'arrêtent à une démonstration gadget dans un navigateur : le développeur doit copier, coller, reformater, corriger les dépendances et créer sa branche à la main. Forge UI Lab a été pensé dès le départ comme un maillon direct de la chaîne d'intégration logicielle.",
-      "L'exécution du code dynamique dans le navigateur exige un cloisonnement strict : une sandbox iframe isolée garantit la sécurité tout en offrant une prévisualisation instantanée et réactive du composant au fur et à mesure que les tokens de code sont streamés.",
-      "Une fois le composant validé, un clic suffit pour déclencher l'authentification GitHub, packager le composant et ouvrir une Pull Request documentée, prête pour la revue de code par l'équipe.",
     ],
   },
   {
@@ -168,8 +175,7 @@ export const projects: Project[] = [
       "Better Auth",
       "Web Speech API",
     ],
-    lede:
-      "Un espace de travail unique pour quelqu'un qui passe de la préparation active à la candidature ciblée.",
+    lede: "Un espace de travail unique pour quelqu'un qui passe de la préparation active à la candidature ciblée.",
     useCase:
       "Un candidat en recherche d'emploi ou de stage doit souvent jongler avec de multiples outils disparates pour s'entraîner aux entretiens, adapter son CV à une fiche de poste et dénicher des offres pertinentes. Career Suite réunit ces trois piliers dans un tableau de bord unifié : simulations d'entretiens vocaux interactifs avec retour critique personnalisé, génération de CV structurés et discovery d'opportunités professionnelles sans rupture de contexte.",
     highlights: [
@@ -186,38 +192,30 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "task-flow",
-    name: "Task Flow",
+    slug: "forge-ui-lab",
+    name: "Forge UI Lab",
     kicker:
-      "Gestion de tâches assistée par IA : génération automatique, priorisation, dépendances et calendrier synchronisé.",
-    year: "2025",
+      "Génère des interfaces React + Tailwind depuis une phrase, et ouvre la pull request sur GitHub.",
+    year: "2026",
     role: "Solo",
     status: "shipped",
-    repo: "task-flow",
-    live: "https://task-flow-lake-omega.vercel.app",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "MongoDB",
-      "Prisma",
-      "Groq",
-      "Auth multi-fournisseur",
-    ],
-    lede:
-      "Le problème n'est pas de saisir des tâches dans une liste. C'est de savoir laquelle accomplir maintenant.",
+    repo: "foregeui-lab",
+    live: "https://foregeui-lab.vercel.app",
+    stack: ["TypeScript", "React", "Tailwind CSS", "Gemini", "GitHub API"],
+    lede: "Un prompt en entrée, un composant Tailwind propre en sortie — pas un playground jetable, mais une vraie Pull Request prête à merger.",
     useCase:
-      "Un chef de projet, un freelance ou une équipe agile lance un nouveau chantier complexe et doit rapidement transformer une note de cadrage en plan d'action ordonnancé. Task Flow décompose l'objectif en tâches unitaires, estime leur charge horaire, cartographie leurs interdépendances critiques et les positionne sur un calendrier interactif pour offrir une trajectoire d'exécution claire dès le premier jour.",
+      "Un ingénieur frontend ou un designer souhaite prototyper et intégrer rapidement un composant d'interface (carte de tarification, tableau de bord, formulaire dynamique) sans repartir d'une page blanche. L'utilisateur décrit son composant en langage naturel ; Forge UI Lab le génère en streaming, affiche son rendu interactif dans une sandbox iframe étanche, permet d'ajuster le résultat et pousse automatiquement le code généré dans une nouvelle branche GitHub avec Pull Request prête pour la revue d'équipe.",
     highlights: [
-      "Décomposition intelligente de projets en sous-tâches actionnables via Groq et LLaMA à très haute vitesse",
-      "Calcul automatisé de la priorité, des durées prévisionnelles et des chemins de dépendance",
-      "Vue calendrier dynamique synchronisée en temps réel avec la liste de tâches",
-      "Tableau de bord de productivité avec métriques d'avancement et états d'avancement",
-      "Architecture de données robuste sous Next.js App Router, Prisma ORM et MongoDB",
+      "Génération de composants React + Tailwind élégants depuis une simple invite textuelle",
+      "Sandbox live sécurisée en iframe pour prévisualiser et interagir avec le composant généré en temps réel",
+      "Mode bi-modèle commutable : rapidité maximale (Gemini Flash Lite) ou créativité poussée (Gemini Flash)",
+      "Workflow GitHub automatisé : création de branche, commit du code et ouverture de Pull Request via l'API GitHub",
+      "Gestion des contraintes de design system pour produire un code propre et facilement maintenable",
     ],
     body: [
-      "La plupart des logiciels de gestion de tâches se contentent d'être des registres passifs : c'est toujours à l'utilisateur de deviner l'ordre des tâches, d'évaluer les temps et de déceler les blocages. Task Flow inverse cette dynamique en confiant la modélisation initiale à un moteur d'inférence ultra-rapide sous Groq.",
-      "Le système analyse la description brute du projet, identifie les prérequis techniques, assemble un graphe de dépendances et calcule un ordre logique d'exécution évitant les goulets d'étranglement.",
-      "La vraie difficulté a résidé dans la synchronisation bidirectionnelle : quand l'utilisateur réorganise une date sur le calendrier ou coche une tâche parente, l'ensemble des estimations et des dépendances filles est recalculé sans incohérence dans MongoDB via Prisma.",
+      "La plupart des générateurs de code IA s'arrêtent à une démonstration gadget dans un navigateur : le développeur doit copier, coller, reformater, corriger les dépendances et créer sa branche à la main. Forge UI Lab a été pensé dès le départ comme un maillon direct de la chaîne d'intégration logicielle.",
+      "L'exécution du code dynamique dans le navigateur exige un cloisonnement strict : une sandbox iframe isolée garantit la sécurité tout en offrant une prévisualisation instantanée et réactive du composant au fur et à mesure que les tokens de code sont streamés.",
+      "Une fois le composant validé, un clic suffit pour déclencher l'authentification GitHub, packager le composant et ouvrir une Pull Request documentée, prête pour la revue de code par l'équipe.",
     ],
   },
   {
@@ -239,8 +237,7 @@ export const projects: Project[] = [
       "Gemini",
       "Streaming",
     ],
-    lede:
-      "Plusieurs modèles, une base documentaire privée, et une réponse qui se diffuse à mesure qu'elle est pensée.",
+    lede: "Plusieurs modèles, une base documentaire privée, et une réponse qui se diffuse à mesure qu'elle est pensée.",
     useCase:
       "Des utilisateurs techniques et des analystes souhaitent dialoguer avec différents modèles d'IA de référence (Gemini, LLaMA) depuis une seule interface unifiée, tout en rattachant leurs documents confidentiels (rapports, spécifications techniques, cours) pour obtenir des explications contextuelles précises avec prévisualisation des fichiers en vis-à-vis.",
     highlights: [
@@ -254,6 +251,40 @@ export const projects: Project[] = [
       "Plutôt que d'être enfermé chez un seul fournisseur de LLM, J-Chat offre une interface universelle capable d'orchestrer plusieurs moteurs d'IA derrière un contrat d'API normalisé, tout en garantissant des réponses diffusées en streaming direct sans délai de buffering.",
       "Le module RAG permet aux utilisateurs de téléverser leurs propres fichiers : les documents sont découpés en fragments pertinents, vectorisés et indexés pour servir de contexte exclusif aux requêtes documentaires pointues.",
       "L'interface intègre un visualiseur de documents synchronisé, permettant de confronter instantanément la réponse formulée par le modèle avec la page originale du fichier téléversé.",
+    ],
+  },
+  {
+    slug: "task-flow",
+    name: "Task Flow",
+    kicker:
+      "Gestion de tâches assistée par IA : génération automatique, priorisation, dépendances et calendrier synchronisé.",
+    year: "2025",
+    role: "Solo",
+    status: "shipped",
+    repo: "task-flow",
+    live: "https://task-flow-lake-omega.vercel.app",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Prisma",
+      "Groq",
+      "Auth multi-fournisseur",
+    ],
+    lede: "Le problème n'est pas de saisir des tâches dans une liste. C'est de savoir laquelle accomplir maintenant.",
+    useCase:
+      "Un chef de projet, un freelance ou une équipe agile lance un nouveau chantier complexe et doit rapidement transformer une note de cadrage en plan d'action ordonnancé. Task Flow décompose l'objectif en tâches unitaires, estime leur charge horaire, cartographie leurs interdépendances critiques et les positionne sur un calendrier interactif pour offrir une trajectoire d'exécution claire dès le premier jour.",
+    highlights: [
+      "Décomposition intelligente de projets en sous-tâches actionnables via Groq et LLaMA à très haute vitesse",
+      "Calcul automatisé de la priorité, des durées prévisionnelles et des chemins de dépendance",
+      "Vue calendrier dynamique synchronisée en temps réel avec la liste de tâches",
+      "Tableau de bord de productivité avec métriques d'avancement et états d'avancement",
+      "Architecture de données robuste sous Next.js App Router, Prisma ORM et MongoDB",
+    ],
+    body: [
+      "La plupart des logiciels de gestion de tâches se contentent d'être des registres passifs : c'est toujours à l'utilisateur de deviner l'ordre des tâches, d'évaluer les temps et de déceler les blocages. Task Flow inverse cette dynamique en confiant la modélisation initiale à un moteur d'inférence ultra-rapide sous Groq.",
+      "Le système analyse la description brute du projet, identifie les prérequis techniques, assemble un graphe de dépendances et calcule un ordre logique d'exécution évitant les goulets d'étranglement.",
+      "La vraie difficulté a résidé dans la synchronisation bidirectionnelle : quand l'utilisateur réorganise une date sur le calendrier ou coche une tâche parente, l'ensemble des estimations et des dépendances filles est recalculé sans incohérence dans MongoDB via Prisma.",
     ],
   },
   {
@@ -274,8 +305,7 @@ export const projects: Project[] = [
       "MongoDB GridFS",
       "Better Auth",
     ],
-    lede:
-      "Un outil unifié pour connecter ses bases de données, générer des snapshots JSON portables et restaurer ses schémas en toute confiance.",
+    lede: "Un outil unifié pour connecter ses bases de données, générer des snapshots JSON portables et restaurer ses schémas en toute confiance.",
     useCase:
       "Un développeur, une équipe produit ou un ingénieur DevOps gère une flotte hétérogène de bases de données (PostgreSQL, MySQL, MongoDB) réparties sur différents hébergeurs. Next Backup remplace les procédures manuelles et scripts d'export disparates par une application centralisée permettant d'enregistrer des projets aux identifiants chiffrés, d'extraire des sauvegardes JSON versionnées en un clic, et de les restaurer selon deux modes opérationnels : fusion douce (upsert) ou écrasement intégral.",
     highlights: [
@@ -310,8 +340,7 @@ export const projects: Project[] = [
       "RTL / Arabe",
       "UploadThing",
     ],
-    lede:
-      "Un écosystème éditorial complet pensé dès la racine pour la typographie et la lecture de droite à gauche (RTL).",
+    lede: "Un écosystème éditorial complet pensé dès la racine pour la typographie et la lecture de droite à gauche (RTL).",
     useCase:
       "Une équipe éditoriale, une institution ou un créateur de contenu opérant dans le monde arabophone a besoin d'un portail média complet offrant une expérience de lecture native de droite à gauche (RTL). La plateforme assure la gestion du cycle de publication d'articles, un système de commentaires modéré avec réponses imbriquées, l'organisation d'événements communautaires avec notifications, et un chatbot IA bilingue capable d'aiguiller les visiteurs et de synthétiser les publications.",
     highlights: [
@@ -347,8 +376,7 @@ export const projects: Project[] = [
       "Chart.js",
       "PostgreSQL",
     ],
-    lede:
-      "Le produit métier d'envergure qui pilote les campagnes d'évaluation et accueille les actions correctives produites par l'IA.",
+    lede: "Le produit métier d'envergure qui pilote les campagnes d'évaluation et accueille les actions correctives produites par l'IA.",
     useCase:
       "Un établissement supérieur ou une organisation qualité doit gérer de bout en bout des campagnes d'audit impliquant des centaines de participants répartis en quatre rôles étanches : administrateurs, auditeurs, audités et étudiants. La plateforme orchestre la distribution des questionnaires pondérés, le calcul automatisé des notes de conformité, la messagerie collaborative en direct, la boîte à idées étudiante et le suivi des plans d'actions correctives générées par microservice IA.",
     highlights: [
@@ -369,29 +397,14 @@ export const projects: Project[] = [
 
 export const alsoBuilt: { name: string; repo: string; note: string }[] = [
   {
-    name: "Rematch",
-    repo: "rematch",
-    note: "Site animé React, Vite, GSAP — travail de mouvement et de transitions.",
-  },
-  {
     name: "Audit AI",
     repo: "audit-ai",
     note: "Microservice Next.js 16 et Gemini pour la génération d'actions correctives d'audit en streaming.",
   },
   {
-    name: "Trakiny",
-    repo: "trakiniy",
-    note: "Supervision de livraisons : application Android, back-end Spring Boot, messagerie en direct et synchronisation hors ligne.",
-  },
-  {
     name: "Logs Server",
     repo: "logs-server",
     note: "Centralisation de logs : serveur Rsyslog sur Node, et une variante ELK complète.",
-  },
-  {
-    name: "Smart City",
-    repo: "smart-city",
-    note: "Serveur TCP multi-thread en C pour le signalement d'incidents en temps réel.",
   },
   {
     name: "Votify",
@@ -402,6 +415,21 @@ export const alsoBuilt: { name: string; repo: string; note: string }[] = [
     name: "Memorizi",
     repo: "memorizi",
     note: "Stockage et partage de souvenirs, avec authentification et espace personnel.",
+  },
+  {
+    name: "Trakiny",
+    repo: "trakiniy",
+    note: "Supervision de livraisons : application Android, back-end Spring Boot, messagerie en direct et synchronisation hors ligne.",
+  },
+  {
+    name: "Smart City",
+    repo: "smart-city",
+    note: "Serveur TCP multi-thread en C pour le signalement d'incidents en temps réel.",
+  },
+  {
+    name: "Rematch",
+    repo: "rematch",
+    note: "Site animé React, Vite, GSAP — travail de mouvement et de transitions.",
   },
   {
     name: "MediAppoint",

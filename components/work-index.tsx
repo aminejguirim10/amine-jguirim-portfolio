@@ -15,7 +15,7 @@ export function WorkIndex({ reposCount = 31 }: { reposCount?: number }) {
       <SectionHeading
         id="work-label"
         label="work"
-        title="Dix projets qui montrent le mieux ce que je fais."
+        title="Onze projets qui montrent le mieux ce que je fais."
         aside={
           <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">
             Survolez « Démo » pour voir le site tourner. Le reste est dans{" "}

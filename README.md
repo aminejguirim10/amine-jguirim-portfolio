@@ -63,10 +63,11 @@ More than a static showcase, it enables visitors to:
 
 ## 🚀 Featured projects
 
-The portfolio currently showcases projects including:
+The portfolio currently showcases 11 projects, including:
 
 - **Agent Studio** — multi-agent software engineering platform orchestrated with LangGraph and Gemini;
 - **Folio** — document research assistant based on RAG and hybrid search;
+- **Amine Jguirim Portfolio** — editorial portfolio with a streaming AI assistant and controlled tools;
 - **Intelligent Support Platform** — microservice-based customer support solution using Java, Angular, and AI;
 - **Forge UI Lab** — frontend interface laboratory and experimentation space;
 - **Career Suite** — digital tools for career management;
