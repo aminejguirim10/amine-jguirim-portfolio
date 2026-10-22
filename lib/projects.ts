@@ -1,0 +1,520 @@
+import type { Project, StackGroup } from "@/lib/types";
+
+export const projects: Project[] = [
+  {
+    slug: "ai-software-agent",
+    name: "Agent Studio",
+    kicker:
+      "Plateforme d'ingénierie logicielle multi-agents orchestrée par LangGraph et Gemini : planification, génération, revue et tests en streaming.",
+    year: "2026",
+    role: "Solo",
+    status: "shipped",
+    repo: "ai-software-agent",
+    live: "https://frontend-gules-six-89.vercel.app",
+    stack: [
+      "LangGraph",
+      "FastAPI",
+      "Python",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Gemini",
+      "Shadcn/UI",
+      "Grafana",
+      "Prometheus",
+      "Better Auth",
+      "MongoDB",
+      
+    ],
+    lede:
+      "Cinq agents autonomes (Planner, Coder, Reviewer, Tester, Supervisor) collaborent en temps réel via LangGraph pour concevoir, valider et livrer du code testé.",
+    useCase:
+      "Un développeur ou une équipe tech doit implémenter une fonctionnalité complexe dans l'un des 50+ langages supportés sans passer par un LLM unique non supervisé. L'utilisateur saisit sa consigne ; le superviseur déploie l'équipe d'agents qui décompose le besoin, écrit le code, effectue un audit de qualité avec boucles de révision conditionnelles, et génère la suite de tests unitaires, tout en diffusant chaque étape en direct via streaming SSE dans un studio Monaco interactif.",
+    highlights: [
+      "Orchestration multi-agents avec machine à états LangGraph reliant 5 agents spécialisés",
+      "Boucle de révision intelligente : rétroaction conditionnelle vers le Coder avant toute génération de tests",
+      "Streaming SSE (Server-Sent Events) en direct visualisant les pensées et itérations de chaque agent",
+      "Studio de code interactif avec éditeur Monaco, coloration syntaxique et export un-clic",
+      "Observabilité complète avec métriques Prometheus, dashboards Grafana et Alertmanager",
+      "Sécurisation GitHub OAuth via Better-Auth et persistance asynchrone non bloquante sous MongoDB",
+    ],
+    body: [
+      "La plupart des assistants IA génératifs souffrent du syndrome du « prompt unique » : le modèle écrit tout d'un coup, sans vérification, accumulant hallucinations et erreurs silencieuses. Agent Studio casse ce schéma en structurant un cycle de développement logiciel complet sous forme de graphe d'états LangGraph.",
+      "L'équipe est composée de cinq agents autonomes aux responsabilités étanches : le Planner établit le cahier des charges, le Coder produit l'implémentation, le Reviewer audite la qualité et le respect des normes, le Tester conçoit la suite de tests unitaires, et le Supervisor pilote la convergence. Si le Reviewer détecte un défaut, le graphe route automatiquement le contexte vers le Coder pour révision avant d'autoriser les tests.",
+      "Côté infrastructure, l'application concilie réactivité et observabilité de niveau entreprise : le backend FastAPI pousse les deltas en temps réel via Server-Sent Events (sse-starlette) vers une interface Next.js 16 et Tailwind v4 intégrant Monaco Editor, tandis qu'une stack Prometheus/Grafana suit les taux de révision, les fallbacks dynamiques entre modèles Gemini et la latence d'exécution.",
+    ],
+  },
+  {
+    slug: "folio",
+    name: "Folio",
+    kicker:
+      "Assistant de recherche documentaire intelligent avec recherche hybride (ChromaDB + BM25) et réponses vérifiables.",
+    year: "2026",
+    role: "Solo",
+    status: "shipped",
+    repo: "folio",
+    stack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "FastAPI",
+      "Python",
+      "Gemini",
+      "ChromaDB",
+      "Docker",
+      "BM25",
+    ],
+    lede:
+      "Transforme des corpus documentaires hétérogènes en une base de connaissances explorable sans hallucinations grâce à des citations vérifiables.",
+    useCase:
+      "Des professionnels, chercheurs ou analystes doivent extraire des informations fiables d'un volume massif de documents d'entreprise (rapports PDF, spécifications Word, présentations PowerPoint, classeurs Excel, images et scans). Folio permet d'importer ces documents, d'interroger la base en langage naturel avec une recherche hybride vectorielle et lexicale, et d'obtenir des synthèses argumentées où chaque réponse cite précisément le document, la page et l'extrait source.",
+    highlights: [
+      "Ingestion unifiée multi-formats : PDF, DOCX, PPTX, XLSX, CSV, Markdown, TXT et images",
+      "Recherche hybride alliant la sémantique de ChromaDB et la précision lexicale de BM25",
+      "Citations traçables et vérifiables avec document source, page exacte, extrait et score de pertinence",
+      "Streaming temps réel des réponses via Server-Sent Events pour une latence perçue minimale",
+      "Traitement vision multimodal avec Google Gemini pour transcrire captures d'écran et schémas",
+      "Déploiement conteneurisé Docker Compose avec persistance des uploads et du catalogue vectoriel",
+    ],
+    body: [
+      "Le piège classique des systèmes RAG (Retrieval-Augmented Generation) est la confiance aveugle : face à des documents complexes, un retriever purement sémantique passe souvent à côté des sigles techniques, des références numériques ou des tableaux financiers. Folio résout ce problème par une recherche hybride combinant la recherche vectorielle sous ChromaDB et la recherche par mots-clés BM25.",
+      "L'intégrité de l'information est au cœur du produit : Gemini est contraint de générer des réponses exclusivement fondées sur les passages effectivement extraits, en fournissant pour chaque fait le nom du fichier source, le numéro de page exacte et le fragment textuel auditable d'un simple clic.",
+      "L'architecture sépare nettement un frontend moderne sous React 19 et Vite avec Framer Motion, et un backend Python 3.12 / FastAPI orchestrant PyMuPDF, python-docx, openpyxl et des validateurs stricts Pydantic v2 pour un fonctionnement entièrement reproductible sous Docker.",
+    ],
+  },
+  {
+    slug: "intelligent-support-platform",
+    name: "Intelligent Support Platform",
+    kicker:
+      "Plateforme de support client intelligent, découpée en trois microservices spécialisés.",
+    year: "2026",
+    role: "Solo",
+    status: "shipped",
+    repo: "intelligent-support-platform-backend",
+    repoExtra: [
+      "intelligent-support-platform-frontend",
+      "intelligent-support-platform-ai",
+    ],
+    stack: [
+      "Java",
+      "Spring Boot",
+      "TypeScript",
+      "Angular",
+      "Python",
+      "FastAPI",
+      "LangGraph",
+      "PostgreSQL",
+    ],
+    lede:
+      "Trois dépôts, trois langages, un seul produit : le support client augmenté par l'analyse prédictive et un agent IA outillé.",
+    useCase:
+      "Une équipe de support client submergée par des flux continus de réclamations complexes transmises sous forme d'e-mails vracs ou de fichiers joints volumineux (TXT, CSV, PDF, DOCX). La plateforme découpe automatiquement les messages contenant plusieurs requêtes distinctes, classe les tickets par urgence, catégorie et tonalité sentimentale, et équipe les conseillers d'un agent conversationnel capable d'effectuer des recherches de tickets, de créer des fiches et d'escalader les incidents critiques en temps réel.",
+    highlights: [
+      "Architecture en microservices découplés : cœur métier Java Spring Boot, frontend réactif et service IA FastAPI",
+      "Séparation intelligente multi-tickets : détection et scission automatique de plusieurs incidents dans un seul message",
+      "Analyse de sentiment, priorité et extraction de mots-clés par LLM via LangChain & LangGraph",
+      "Agent conversationnel outillé (tool-calling) assistant l'opérateur dans la gestion et l'escalade des tickets",
+      "Traitement par lot (batch processing) et parsing multi-formats de pièces jointes (PDF, DOCX, CSV)",
+      "Authentification robuste JWT avec refresh tokens et contrôle d'accès granulaire RBAC",
+    ],
+    body: [
+      "Dans un centre de support d'envergure, le goulot d'étranglement n'est pas la rédaction de la réponse, mais le tri initial et la qualification de l'urgence. Intelligent Support Platform automatise cette étape critique dès l'ingestion du ticket.",
+      "Plutôt qu'un monolithe difficile à faire évoluer, le système s'articule autour de trois microservices étanches : le backend Java Spring Boot garantit l'intégrité transactionnelle et la sécurité RBAC, le frontend TypeScript offre un espace de travail fluide aux agents, et le microservice Python isole les pipelines LangGraph et les appels d'inférence LLM.",
+      "Cette architecture permet de faire évoluer les modèles et les stratégies de découpage de tickets sans jamais perturber les règles métiers financières ou d'escalade gérées côté Spring Boot.",
+    ],
+  },
+  {
+    slug: "forge-ui-lab",
+    name: "Forge UI Lab",
+    kicker:
+      "Génère des interfaces React + Tailwind depuis une phrase, et ouvre la pull request sur GitHub.",
+    year: "2026",
+    role: "Solo",
+    status: "shipped",
+    repo: "foregeui-lab",
+    live: "https://foregeui-lab.vercel.app",
+    stack: ["TypeScript", "React", "Tailwind CSS", "Gemini", "GitHub API"],
+    lede:
+      "Un prompt en entrée, un composant Tailwind propre en sortie — pas un playground jetable, mais une vraie Pull Request prête à merger.",
+    useCase:
+      "Un ingénieur frontend ou un designer souhaite prototyper et intégrer rapidement un composant d'interface (carte de tarification, tableau de bord, formulaire dynamique) sans repartir d'une page blanche. L'utilisateur décrit son composant en langage naturel ; Forge UI Lab le génère en streaming, affiche son rendu interactif dans une sandbox iframe étanche, permet d'ajuster le résultat et pousse automatiquement le code généré dans une nouvelle branche GitHub avec Pull Request prête pour la revue d'équipe.",
+    highlights: [
+      "Génération de composants React + Tailwind élégants depuis une simple invite textuelle",
+      "Sandbox live sécurisée en iframe pour prévisualiser et interagir avec le composant généré en temps réel",
+      "Mode bi-modèle commutable : rapidité maximale (Gemini Flash Lite) ou créativité poussée (Gemini Flash)",
+      "Workflow GitHub automatisé : création de branche, commit du code et ouverture de Pull Request via l'API GitHub",
+      "Gestion des contraintes de design system pour produire un code propre et facilement maintenable",
+    ],
+    body: [
+      "La plupart des générateurs de code IA s'arrêtent à une démonstration gadget dans un navigateur : le développeur doit copier, coller, reformater, corriger les dépendances et créer sa branche à la main. Forge UI Lab a été pensé dès le départ comme un maillon direct de la chaîne d'intégration logicielle.",
+      "L'exécution du code dynamique dans le navigateur exige un cloisonnement strict : une sandbox iframe isolée garantit la sécurité tout en offrant une prévisualisation instantanée et réactive du composant au fur et à mesure que les tokens de code sont streamés.",
+      "Une fois le composant validé, un clic suffit pour déclencher l'authentification GitHub, packager le composant et ouvrir une Pull Request documentée, prête pour la revue de code par l'équipe.",
+    ],
+  },
+  {
+    slug: "career-suite",
+    name: "Career Suite",
+    kicker:
+      "Entraînement d'entretien vocal, génération de CV sur mesure et découverte d'opportunités au même endroit.",
+    year: "2026",
+    role: "Solo",
+    status: "shipped",
+    repo: "career-suite",
+    live: "https://career-suite-six.vercel.app",
+    stack: [
+      "TypeScript",
+      "Next.js",
+      "IA générative",
+      "Better Auth",
+      "Web Speech API",
+    ],
+    lede:
+      "Un espace de travail unique pour quelqu'un qui passe de la préparation active à la candidature ciblée.",
+    useCase:
+      "Un candidat en recherche d'emploi ou de stage doit souvent jongler avec de multiples outils disparates pour s'entraîner aux entretiens, adapter son CV à une fiche de poste et dénicher des offres pertinentes. Career Suite réunit ces trois piliers dans un tableau de bord unifié : simulations d'entretiens vocaux interactifs avec retour critique personnalisé, génération de CV structurés et discovery d'opportunités professionnelles sans rupture de contexte.",
+    highlights: [
+      "Simulateur d'entretiens interactif à commande vocale (Speech-to-Text et synthèse vocale)",
+      "Génération de feedbacks actionnables avec questions de relance adaptatives selon les réponses",
+      "Générateur et optimiseur de CV adapté aux compétences recherchées sur le marché",
+      "Historique complet des sessions pour suivre sa progression et perfectionner ses arguments",
+      "Authentification multi-fournisseurs (GitHub, Google OAuth) via Better Auth",
+    ],
+    body: [
+      "La phase de candidature est par nature stressante et décousue. Le candidat s'entraîne à l'oral sur un enregistreur, rédige son CV dans un traitement de texte et explore les offres sur un réseau social. Career Suite brise cette dispersion en maintenant le profil et les accomplissements du candidat au centre de chaque module.",
+      "Le module d'entretien s'appuie sur la Web Speech API et des prompts d'évaluation conversationnels : l'IA ne se contente pas de juger une réponse figée, elle pose des questions de relance en fonction de ce que le candidat vient d'affirmer, simulant fidèlement la dynamique d'un recruteur technique.",
+      "L'ensemble des données de préparation alimente ensuite la génération du CV, garantissant que les compétences valorisées lors des simulations orales se reflètent fidèlement sur le document final.",
+    ],
+  },
+  {
+    slug: "task-flow",
+    name: "Task Flow",
+    kicker:
+      "Gestion de tâches assistée par IA : génération automatique, priorisation, dépendances et calendrier synchronisé.",
+    year: "2025",
+    role: "Solo",
+    status: "shipped",
+    repo: "task-flow",
+    live: "https://task-flow-lake-omega.vercel.app",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Prisma",
+      "Groq",
+      "Auth multi-fournisseur",
+    ],
+    lede:
+      "Le problème n'est pas de saisir des tâches dans une liste. C'est de savoir laquelle accomplir maintenant.",
+    useCase:
+      "Un chef de projet, un freelance ou une équipe agile lance un nouveau chantier complexe et doit rapidement transformer une note de cadrage en plan d'action ordonnancé. Task Flow décompose l'objectif en tâches unitaires, estime leur charge horaire, cartographie leurs interdépendances critiques et les positionne sur un calendrier interactif pour offrir une trajectoire d'exécution claire dès le premier jour.",
+    highlights: [
+      "Décomposition intelligente de projets en sous-tâches actionnables via Groq et LLaMA à très haute vitesse",
+      "Calcul automatisé de la priorité, des durées prévisionnelles et des chemins de dépendance",
+      "Vue calendrier dynamique synchronisée en temps réel avec la liste de tâches",
+      "Tableau de bord de productivité avec métriques d'avancement et états d'avancement",
+      "Architecture de données robuste sous Next.js App Router, Prisma ORM et MongoDB",
+    ],
+    body: [
+      "La plupart des logiciels de gestion de tâches se contentent d'être des registres passifs : c'est toujours à l'utilisateur de deviner l'ordre des tâches, d'évaluer les temps et de déceler les blocages. Task Flow inverse cette dynamique en confiant la modélisation initiale à un moteur d'inférence ultra-rapide sous Groq.",
+      "Le système analyse la description brute du projet, identifie les prérequis techniques, assemble un graphe de dépendances et calcule un ordre logique d'exécution évitant les goulets d'étranglement.",
+      "La vraie difficulté a résidé dans la synchronisation bidirectionnelle : quand l'utilisateur réorganise une date sur le calendrier ou coche une tâche parente, l'ensemble des estimations et des dépendances filles est recalculé sans incohérence dans MongoDB via Prisma.",
+    ],
+  },
+  {
+    slug: "j-chat",
+    name: "J-Chat",
+    kicker:
+      "Chat multi-modèles avec RAG sur documents personnalisés et réponses en streaming.",
+    year: "2025",
+    role: "Solo",
+    status: "shipped",
+    repo: "j-chat",
+    live: "https://j-chat-zeta.vercel.app",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Supabase",
+      "pgvector",
+      "Gemini",
+      "Streaming",
+    ],
+    lede:
+      "Plusieurs modèles, une base documentaire privée, et une réponse qui se diffuse à mesure qu'elle est pensée.",
+    useCase:
+      "Des utilisateurs techniques et des analystes souhaitent dialoguer avec différents modèles d'IA de référence (Gemini, LLaMA) depuis une seule interface unifiée, tout en rattachant leurs documents confidentiels (rapports, spécifications techniques, cours) pour obtenir des explications contextuelles précises avec prévisualisation des fichiers en vis-à-vis.",
+    highlights: [
+      "Sélecteur multi-modèles sans rechargement de session (Gemini 3.8 Flash, modèles Groq en production)",
+      "Interrogation de documents (RAG) avec découpage sémantique et recherche vectorielle",
+      "Visualiseur de documents (PDF, DOCX) intégré côte-à-côte avec le flux de discussion",
+      "Diffusion en streaming temps réel de bout en bout pour une réponse sans latence",
+      "Gestion étanche des conversations et des droits d'accès documentaire avec Supabase et Prisma",
+    ],
+    body: [
+      "Plutôt que d'être enfermé chez un seul fournisseur de LLM, J-Chat offre une interface universelle capable d'orchestrer plusieurs moteurs d'IA derrière un contrat d'API normalisé, tout en garantissant des réponses diffusées en streaming direct sans délai de buffering.",
+      "Le module RAG permet aux utilisateurs de téléverser leurs propres fichiers : les documents sont découpés en fragments pertinents, vectorisés et indexés pour servir de contexte exclusif aux requêtes documentaires pointues.",
+      "L'interface intègre un visualiseur de documents synchronisé, permettant de confronter instantanément la réponse formulée par le modèle avec la page originale du fichier téléversé.",
+    ],
+  },
+  {
+    slug: "next-backup",
+    name: "Next Backup",
+    kicker:
+      "Espace de sauvegarde et de restauration multi-bases de données (PostgreSQL, MySQL, MongoDB) par projet.",
+    year: "2026",
+    role: "Solo",
+    status: "shipped",
+    repo: "next-backup",
+    live: "https://next-backup-pi.vercel.app",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB GridFS",
+      "Better Auth",
+    ],
+    lede:
+      "Un outil unifié pour connecter ses bases de données, générer des snapshots JSON portables et restaurer ses schémas en toute confiance.",
+    useCase:
+      "Un développeur, une équipe produit ou un ingénieur DevOps gère une flotte hétérogène de bases de données (PostgreSQL, MySQL, MongoDB) réparties sur différents hébergeurs. Next Backup remplace les procédures manuelles et scripts d'export disparates par une application centralisée permettant d'enregistrer des projets aux identifiants chiffrés, d'extraire des sauvegardes JSON versionnées en un clic, et de les restaurer selon deux modes opérationnels : fusion douce (upsert) ou écrasement intégral.",
+    highlights: [
+      "Support natif et détection automatique de trois moteurs majeurs : PostgreSQL, MySQL et MongoDB",
+      "Génération d'instantanés JSON portables et structurés, facilement inspectables et téléchargeables",
+      "Restauration intelligente à deux modes : fusion (upsert basé sur les identifiants) ou réinitialisation intégrale",
+      "Stockage sans limite des gros volumes de données via MongoDB GridFS",
+      "Organisation par projets avec chiffrement des chaînes de connexion et authentification Better Auth",
+    ],
+    body: [
+      "La gestion des sauvegardes est trop souvent le parent pauvre des architectures : éparpillée entre des scripts cron fragiles, des outils CLI spécifiques à chaque SGBD et des archives non testées. Next Backup conçoit la sauvegarde comme un produit autonome orienté développeur.",
+      "L'utilisateur configure ses projets avec leurs chaînes de connexion sécurisées. L'application inspecte automatiquement les tables relationnelles ou les collections documentaires, normalise les données dans un schéma JSON portable et horodaté, et stocke les payloads volumineux dans MongoDB GridFS pour éviter tout dépassement de mémoire sur les fonctions Serverless de Vercel.",
+      "Lors d'une restauration, le développeur garde le contrôle complet : il peut injecter le snapshot en mode « merge » pour réparer des enregistrements ciblés par clés primaires sans écraser le reste, ou choisir le mode « replace » pour réinitialiser fidèlement un environnement de staging.",
+    ],
+  },
+  {
+    slug: "internship-blog",
+    name: "Internship Blog",
+    kicker:
+      "Plateforme de publication professionnelle en arabe avec mise en page RTL native, dashboard d'administration et assistant IA.",
+    year: "2025",
+    role: "Solo",
+    status: "shipped",
+    repo: "internship-blog-website",
+    live: "https://stage-navy-three.vercel.app",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Supabase",
+      "Clerk",
+      "RTL / Arabe",
+      "UploadThing",
+    ],
+    lede:
+      "Un écosystème éditorial complet pensé dès la racine pour la typographie et la lecture de droite à gauche (RTL).",
+    useCase:
+      "Une équipe éditoriale, une institution ou un créateur de contenu opérant dans le monde arabophone a besoin d'un portail média complet offrant une expérience de lecture native de droite à gauche (RTL). La plateforme assure la gestion du cycle de publication d'articles, un système de commentaires modéré avec réponses imbriquées, l'organisation d'événements communautaires avec notifications, et un chatbot IA bilingue capable d'aiguiller les visiteurs et de synthétiser les publications.",
+    highlights: [
+      "Direction de lecture RTL (Right-to-Left) native et choix typographiques adaptés aux spécificités de la langue arabe",
+      "Gestion des rôles et autorisations hiérarchiques (Admin, Éditeur, Lecteur) avec Clerk",
+      "Tableau de bord d'administration complet : modération des commentaires, métriques et gestion d'événements",
+      "Chatbot IA conversationnel intégré pour guider la découverte d'articles et répondre aux questions des lecteurs",
+      "Upload et optimisation sécurisée de médias avec UploadThing et base de données Supabase / Prisma",
+    ],
+    body: [
+      "Adapter une application au monde arabe ne se limite pas à inverser la propriété CSS `direction: rtl`. Cela exige une refonte globale de l'ergonomie : espacement typographique adapté aux ligatures, alignement des formulaires, inversion des flux de navigation et gestion soignée des éléments bidirectionnels (code informatique, chiffres, termes latins).",
+      "Internship Blog a été conçu pour des équipes de rédaction exigeantes : les administrateurs disposent d'un tableau de bord de bord pour valider les contributions, planifier des événements avec rappels automatisés et modérer les discussions imbriquées.",
+      "Pour amplifier l'engagement, un chatbot IA est directement greffé sur le corpus d'articles, permettant aux lecteurs d'interroger la base documentaire du blog et de trouver instantanément les contenus les plus pertinents sans naviguer à l'aveugle.",
+    ],
+  },
+  {
+    slug: "audit-management",
+    name: "Audit Management",
+    kicker:
+      "Plateforme de gestion d'audit d'entreprise complète, flankée par le microservice d'actions correctives Audit AI.",
+    year: "2026",
+    role: "Solo",
+    status: "shipped",
+    repo: "audit-management-front",
+    repoExtra: ["audit-management-back"],
+    live: "https://audit-management-front.vercel.app",
+    stack: [
+      "Java",
+      "Spring Boot",
+      "Angular",
+      "TypeScript",
+      "WebSocket / STOMP",
+      "Chart.js",
+      "PostgreSQL",
+    ],
+    lede:
+      "Le produit métier d'envergure qui pilote les campagnes d'évaluation et accueille les actions correctives produites par l'IA.",
+    useCase:
+      "Un établissement supérieur ou une organisation qualité doit gérer de bout en bout des campagnes d'audit impliquant des centaines de participants répartis en quatre rôles étanches : administrateurs, auditeurs, audités et étudiants. La plateforme orchestre la distribution des questionnaires pondérés, le calcul automatisé des notes de conformité, la messagerie collaborative en direct, la boîte à idées étudiante et le suivi des plans d'actions correctives générées par microservice IA.",
+    highlights: [
+      "Espaces métiers étanches dédiés à quatre rôles d'utilisateurs distincts : ADMIN, AUDITEUR, AUDITE, ETUDIANT",
+      "Gestion du cycle de vie complet des audits avec calcul dynamique des statuts selon le calendrier",
+      "Moteur de questionnaires d'audit avec pondérations, types d'audit personnalisés et scoring automatisé",
+      "Messagerie temps réel collaborative et système de notifications instantanées via WebSocket (STOMP)",
+      "Tableaux de bord analytiques interactifs avec Chart.js pour visualiser les scores et taux de conformité",
+      "Intégration transparente avec le microservice Audit AI pour convertir chaque non-conformité en action corrective",
+    ],
+    body: [
+      "Dans un audit de certification ou de conformité d'établissement, le défi réside dans la séparation rigoureuse des responsabilités et la traçabilité intégrale de chaque décision. La plateforme cloisonne l'expérience en quatre portails dédiés sous Angular 20, garantissant que chaque profil ne voit que les données et actions correspondant à son périmètre.",
+      "Le backend Spring Boot pilote le cycle de vie des campagnes : il verrouille les questionnaires à échéance, calcule les notes globales et transmet les non-conformités au microservice Audit AI. Ce dernier convertit automatiquement chaque question en échec en une action corrective normée, réinjectée dans le plan d'action de l'audité.",
+      "Pour accélérer la résolution des points d'audit, une messagerie collaborative sur WebSocket / STOMP permet aux auditeurs et audités d'échanger en direct avec pièces jointes et historique auditable, tandis qu'un espace participatif permet aux étudiants de soumettre et voter pour des idées d'amélioration.",
+    ],
+  },
+];
+
+export const alsoBuilt: { name: string; repo: string; note: string }[] = [
+  {
+    name: "Rematch",
+    repo: "rematch",
+    note: "Site animé React, Vite, GSAP — travail de mouvement et de transitions.",
+  },
+  {
+    name: "Audit AI",
+    repo: "audit-ai",
+    note: "Microservice Next.js 16 et Gemini pour la génération d'actions correctives d'audit en streaming.",
+  },
+  {
+    name: "Trakiny",
+    repo: "trakiniy",
+    note: "Supervision de livraisons : application Android, back-end Spring Boot, messagerie en direct et synchronisation hors ligne.",
+  },
+  {
+    name: "Logs Server",
+    repo: "logs-server",
+    note: "Centralisation de logs : serveur Rsyslog sur Node, et une variante ELK complète.",
+  },
+  {
+    name: "Smart City",
+    repo: "smart-city",
+    note: "Serveur TCP multi-thread en C pour le signalement d'incidents en temps réel.",
+  },
+  {
+    name: "Votify",
+    repo: "votify",
+    note: "Salles de vote partageables, sans inscription.",
+  },
+  {
+    name: "Memorizi",
+    repo: "memorizi",
+    note: "Stockage et partage de souvenirs, avec authentification et espace personnel.",
+  },
+  {
+    name: "MediAppoint",
+    repo: "medi-appoint",
+    note: "Prise de rendez-vous médicaux — premier projet front-end d'une longue série.",
+  },
+  {
+    name: "Bloggy",
+    repo: "bloggy",
+    note: "Blog avec authentification, gestion d'articles et commentaires.",
+  },
+  {
+    name: "Web Scraping",
+    repo: "web_scraping",
+    note: "Extraction de fiches produits depuis Tunisianet et Amazon.",
+  },
+];
+
+const identityHandle = "aminejguirim10";
+
+export const repoUrl = (repo: string) =>
+  `https://github.com/${identityHandle}/${repo}`;
+
+export const stackGroups: StackGroup[] = [
+  {
+    category: "Langages",
+    icon: "braces",
+    items: [
+      "TypeScript",
+      "Java",
+      "Python",
+      "JavaScript",
+      "C",
+      "C++",
+      "SQL / PL-SQL",
+    ],
+  },
+  {
+    category: "Côté client",
+    icon: "monitor",
+    items: [
+      "React",
+      "Next.js App Router",
+      "Angular",
+      "Tailwind CSS",
+      "shadcn/ui",
+    ],
+  },
+  {
+    category: "Back-end",
+    icon: "server",
+    items: [
+      "Spring Boot",
+      "NestJS",
+      "Node.js",
+      "Express",
+      "FastAPI",
+      "API REST",
+    ],
+  },
+  {
+    category: "IA / Machine learning",
+    icon: "brain",
+    items: [
+      "Gemini",
+      "LangChain",
+      "LangGraph",
+      "OpenRouter",
+      "pgvector",
+      "ChromaDB",
+      "Vercel AI SDK",
+      "TensorFlow",
+      "scikit-learn",
+      "pandas",
+      "Streaming",
+      "RAG",
+      "Structured Generation",
+    ],
+  },
+  {
+    category: "Données",
+    icon: "database",
+    items: [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Prisma",
+      "Drizzle",
+      "Neon",
+      "Supabase",
+    ],
+  },
+  {
+    category: "Infrastructure / Déploiement",
+    icon: "container",
+    items: [
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Argo CD",
+      "AWS",
+      "Linux",
+      "Prometheus",
+      "Grafana",
+      "Vercel",
+      "Render",
+      "Git",
+      "GitHub Actions",
+      "SonarQube",
+      "Trivy",
+    ],
+  },
+];
+export function getProject(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}
